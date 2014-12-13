@@ -54,7 +54,7 @@ func main() {
 }
 
 func handleFunc(w http.ResponseWriter, r *http.Request) {
-    fmt.Printf("request from client: %+v\n", r)
+    fmt.Printf("--> %v %v\n", r.Method, r.URL)
     
     // Construct filtered header to send to origin server
     hh := http.Header{}
@@ -85,7 +85,7 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
     }
     defer resp.Body.Close()
     
-    fmt.Printf("response from origin server: %+v\n", resp)
+    fmt.Printf("<-- %v\n", resp.Status)
     
     // Transfer filtered header from origin server -> client
     respH := w.Header()
