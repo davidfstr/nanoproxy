@@ -34,13 +34,7 @@ var passthruResponseHeaderKeys = [...]string{
 func main() {
     handler := http.DefaultServeMux
     
-    // TODO: There's no way to register a handler that listens to ALL
-    //       incoming requests at the moment. Good idea to ask the
-    //       Go community for a workaround.
-    handler.HandleFunc("xkcd.com/", handleFunc)
-    handler.HandleFunc("imgs.xkcd.com/", handleFunc)
-    handler.HandleFunc("www.google.com/", handleFunc)
-    handler.HandleFunc("c.xkcd.com/", handleFunc)
+    handler.HandleFunc("/", handleFunc)
     
     s := &http.Server{
         Addr:           ":8080",

@@ -3,14 +3,16 @@
 This is a tiny HTTP forward proxy written in [Go],
 for me to gain experience in the Go language.
 
+This proxy accepts all requests and forwards them directly to the
+origin server. It performs no caching.
+
 Despite this not being a full proxy implementation, it is blazing fast.
 In particular it is significantly faster than Squid and slightly faster than
 Apache's mod_proxy. This demonstrates that Go's built-in HTTP library is
 of a very high quality and that the Go runtime is quite performant.
 
-At the time of writing this proxy is hardcoded to only forward traffic
-to `xkcd.com` and subdomains due to API limitations in registering HTTP
-handlers in Go's HTTP server library.
+Only `xkcd.com` has been really tested with this proxy.
+Many other sites don't work with the current implementation.
 
 ## Prerequisites
 
