@@ -34,3 +34,11 @@ cd nanoproxy
 * Open your web browser to `http://xkcd.com` or some other page on that site.
 
 [Go]: https://golang.org
+
+## Notes
+
+* Go's HTTP server implementation is really good. I read it all.
+  Only missing feature I desire is the ability to process multiple
+  pipelined HTTP requests in parallel.
+* Go's HTTP client implementation is easy to use, based on my limited
+  experience in this proxy. I have not read its implementation.
