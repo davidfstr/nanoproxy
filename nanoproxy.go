@@ -7,6 +7,8 @@ import (
     "time"
 )
 
+var verbose = false;
+
 var passthruRequestHeaderKeys = [...]string{
     "Accept",
     "Accept-Encoding",
@@ -79,7 +81,11 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
     }
     defer resp.Body.Close()
     
-    fmt.Printf("<-- %v\n", resp.Status)
+    if (verbose) {
+        fmt.Printf("<-- %v %+v\n", resp.Status, resp.Header)
+    } else {
+        fmt.Printf("<-- %v\n", resp.Status)
+    }
     
     // Transfer filtered header from origin server -> client
     respH := w.Header()
